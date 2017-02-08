@@ -249,7 +249,25 @@ open class XAxisRenderer: AxisRendererBase
                         position.x += width / 2.0
                     }
                 }
-                
+
+
+                if xAxis.isTickMarksEnabled {
+                    if let axisLineY = _axisLineSegmentsBuffer.first?.y {
+                        context.saveGState()
+
+                        context.setStrokeColor(xAxis.axisLineColor.cgColor)
+                        context.setLineWidth(1)
+
+                        let yDiff = pos - axisLineY
+                        let point1 = CGPoint(x: position.x, y: pos - (0.5 * yDiff))
+                        let point2 = CGPoint(x: position.x, y: axisLineY)
+
+                        context.strokeLineSegments(between: [point1, point2])
+
+                        context.restoreGState()
+                    }
+                }
+
                 drawLabel(context: context,
                           formattedLabel: label,
                           x: position.x,

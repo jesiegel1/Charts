@@ -24,7 +24,13 @@ open class XAxis: AxisBase
         case topInside
         case bottomInside
     }
-    
+
+    /// If set to true, the chart will draw tick marks from the x-axis to each axis label
+    open var tickMarksEnabled = false
+
+    /// - returns: `true` if adding tick marks to the x-axis is enabled
+    open var isTickMarksEnabled: Bool { return tickMarksEnabled }
+
     /// width of the x-axis labels in pixels - this is automatically calculated by the `computeSize()` methods in the renderers
     open var labelWidth = CGFloat(1.0)
     
