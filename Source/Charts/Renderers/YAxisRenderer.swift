@@ -386,6 +386,16 @@ open class YAxisRenderer: AxisRendererBase
                         align: .left,
                         attributes: [NSFontAttributeName: l.valueFont, NSForegroundColorAttributeName: l.valueTextColor])
                 }
+                else if l.labelPosition == .centerTop
+                {
+                    ChartUtils.drawText(context: context,
+                                        text: label,
+                                        point: CGPoint(
+                                            x: viewPortHandler.contentWidth / 2,
+                                            y: position.y - yOffset),
+                                        align: .center,
+                                        attributes: [NSFontAttributeName: l.valueFont, NSForegroundColorAttributeName: l.valueTextColor])
+                }
                 else
                 {
                     ChartUtils.drawText(context: context,
