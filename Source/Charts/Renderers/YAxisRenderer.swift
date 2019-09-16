@@ -382,7 +382,7 @@ open class YAxisRenderer: AxisRendererBase
                                             x: viewPortHandler.contentWidth / 2,
                                             y: position.y - yOffset),
                                         align: .center,
-                                        attributes: [NSFontAttributeName: l.valueFont, NSForegroundColorAttributeName: l.valueTextColor])
+                                        attributes: [NSAttributedString.Key.font: l.valueFont, NSAttributedString.Key.foregroundColor: l.valueTextColor])
                 }
                 else
                 {
